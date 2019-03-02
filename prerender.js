@@ -124,7 +124,7 @@ async function prerender(request, response) {
 		var frame = await page.waitFor('#inner-iframe', { timeout: 500 })
 		frame = await frame.contentFrame()
 
-		var loader = frame.evaluate(function () {
+		frame.evaluate(function () {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
 			}
