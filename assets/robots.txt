@@ -1,0 +1,4 @@
+Sitemap: https://43110.cf/sitemap.txt
+Sitemap: https://43110.cf/sitemap.xml
+Sitemap: https://43110.cf/feedmap.txt
+Sitemap: https://43110.cf/feedmap.xml
