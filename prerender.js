@@ -305,7 +305,7 @@ function queueRemove(request, response) {
 
 	removeIteminArray(queue, request)
 	removeIteminArray(queue, response)
-	mapMinus(IP)
+	setTimeout(mapMinus, 1000, IP)
 	queueRun()
 }
 function queueRun() {
