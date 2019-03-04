@@ -267,7 +267,7 @@ function blockRequest(request) {
 function botTest(userAgent) {
 	if (!userAgent) return false
 	userAgent = userAgent.toLowerCase()
-	return userAgent.includes('google') || userAgent.includes('yandex') || userAgent.includes('bing')
+	return userAgent.includes('google') || userAgent.includes('yandex') || userAgent.includes('bing') || userAgent.includes('wget') || userAgent.includes('curl')
 }
 
 var queue = []
