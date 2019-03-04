@@ -67,7 +67,7 @@ function main(request, response) {
 	var isCommonStatic = ['.css', '.js', '.json', '.jpg', '.jpeg', '.png', '.gif', '.svg', '.ico'].includes(ext)
 
 	if (isHTML) {
-		queueAdd(request, response)
+		queueAdd(request, response, botTest(request.headers['User-Agent']))
 		return
 	} else if (FLAG_PUBLIC && !isEndWithSlash && !isCommonStatic) {
 		// optimize for caching rule
@@ -119,11 +119,12 @@ async function prerender(request, response) {
 		await page.setRequestInterception(true)
 		page.on('request', blockRequest)
 
-		await page.goto('http://127.0.0.1:43110' + request.url, { waitUntil: 'domcontentloaded', timeout: 2000 })
+		await page.goto('http://127.0.0.1:43110' + request.url, { waitUntil: 'domcontentloaded', timeout: 4000 })
 		await page.waitFor(200)
-		var frame = await page.waitFor('#inner-iframe', { timeout: 500 })
+		var frame = await page.waitFor('#inner-iframe', { timeout: 1000 })
 		frame = await frame.contentFrame()
 
+		var isBot = botTest(request.headers['User-Agent'])
 		frame.evaluate(function () {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
@@ -144,9 +145,9 @@ async function prerender(request, response) {
 				clearInterval(clicker)
 				clearInterval(scroller)
 				style.remove()
-			}, 1600)
+			}, isBot ? 3000 : 1600)
 		})
-		await page.waitFor(1800)
+		await page.waitFor(isBot ? 4000 : 1800)
 
 		frame = await page.waitFor('#inner-iframe', { timeout: 5000 })
 		frame = await frame.contentFrame()
@@ -198,7 +199,7 @@ async function prerender(request, response) {
 		queueRemove(request, response)
 		if (frameHTML === 403) {
 			response.writeHead(403)
-			response.end('403 Forbidden:\n' + 'Too big to prerender')
+			response.end('403 Forbidden: too big to load')
 		} else if (frameHTML === 404) {
 			response.writeHead(404)
 			response.end('404 Not Found')
@@ -263,11 +264,17 @@ function blockRequest(request) {
 	}
 }
 
+function botTest(userAgent) {
+	if (!userAgent) return false
+	userAgent = userAgent.toLowerCase()
+	return userAgent.includes('google') || userAgent.includes('yandex') || userAgent.includes('bing')
+}
+
 var queue = []
 var IPs = {}
 var running = 0
 
-function queueAdd(request, response) {
+function queueAdd(request, response, isBot) {
 	console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
 	var IP = getIP(request, response)
 
@@ -285,7 +292,7 @@ function queueAdd(request, response) {
 			queue.unshift(request)
 			queue.unshift(response)
 			queueRun()
-		}, IPs[IP] * 2000)
+		}, IPs[IP] * (isBot ? 5000 : 3000))
 		request.on('close', () => {
 			clearTimeout(pending)
 			queueRemove(request, response)
