@@ -119,7 +119,7 @@ async function prerender(request, response) {
 		await page.setRequestInterception(true)
 		page.on('request', blockRequest)
 
-		await page.goto('http://127.0.0.1:43110' + request.url, { waitUntil: 'domcontentloaded', timeout: 4000 })
+		await page.goto('http://127.0.0.1:43110' + request.url, { waitUntil: 'domcontentloaded', timeout: 20000 })
 		await page.waitFor(200)
 		var frame = await page.waitFor('#inner-iframe', { timeout: 1000 })
 		frame = await frame.contentFrame()
