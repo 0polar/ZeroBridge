@@ -129,16 +129,16 @@ async function prerender(request, response) {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
 			}
-			var style = document.createElement('style')
+			let style = document.createElement('style')
 			style.innerHTML = '*, body * { transition: 0s 0s !important; }'
 			document.head.appendChild(style)
 
-			var clicker = setInterval(() => {
+			let clicker = setInterval(() => {
 				// ZeroTalk, ZeroSites, Millchan, Nullchan
-				var buttons = document.querySelectorAll('[href="#More"], #SiteLists .more, .posts_wrapper .toggle-replies, .skip-gap .expand-button')
+				let buttons = document.querySelectorAll('[href="#More"], #SiteLists .more, .posts_wrapper .toggle-replies, .skip-gap .expand-button')
 				Array.from(buttons).forEach(element => element.click())
 			}, 300)
-			var scroller = setInterval(() => {
+			let scroller = setInterval(() => {
 				window.scrollBy(50, 800)
 			}, 100)
 			setTimeout(() => {
@@ -156,11 +156,11 @@ async function prerender(request, response) {
 		var frameTitle = await frame.title()
 		var fullTitle = titleProcess(pageTitle, frameTitle)
 		var iconLink = await page.evaluate(function () {
-			var element = document.querySelector('link[rel="icon"]')
+			let element = document.querySelector('link[rel="icon"]')
 			return element ? element.outerHTML : ''
 		})
 		var viewPort = await page.evaluate(function () {
-			var element = document.querySelector('meta[name="viewport"]')
+			let element = document.querySelector('meta[name="viewport"]')
 			return element ? element.outerHTML : ''
 		})
 		if (FLAG_BANNER) {
@@ -170,11 +170,11 @@ async function prerender(request, response) {
 		}
 
 		var frameHTML = await frame.evaluate(function (fullTitle, iconLink, viewPort, FLAG_BANNER, banner) {
-			var scripts = document.querySelectorAll('script, object, embed, meta[charset], meta[http-equiv]')
+			let scripts = document.querySelectorAll('script, object, embed, meta[charset], meta[http-equiv]')
 			Array.from(scripts).forEach(element => element.remove())
 
-			var h1 = document.querySelector('h1')
-			var h2 = document.querySelector('h2')
+			let h1 = document.querySelector('h1')
+			let h2 = document.querySelector('h2')
 			if (h1 && h2 && h1.innerText === 'SITE BLOCKED' && h2.innerText === 'THIS SITE IS ON YOUR BLOCKLIST:') {
 				return 403
 			}
@@ -185,7 +185,7 @@ async function prerender(request, response) {
 			if (FLAG_BANNER) document.body.innerHTML += banner
 			document.head.innerHTML = iconLink + viewPort + document.head.innerHTML
 
-			var content = document.documentElement.outerHTML
+			let content = document.documentElement.outerHTML
 				.split('href="http://127.0.0.1:43110').join('href="')
 				.split('href="http://localhost:43110').join('href="')
 				.split('src="http://127.0.0.1:43110').join('src="')
