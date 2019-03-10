@@ -100,3 +100,15 @@ https://www.techbrown.com/create-linux-swap-drive-swap-file
 ...
 Hosted on Cloudflare and Vultr.
 ```
+
+## Remove long time "connecting" site
+
+https://github.com/zcyzcy88/SelfColle/issues/57
+
+```js
+Page.site_list.sites.forEach(e => {
+	if (!e.row.content.title) {
+		Page.cmd('siteDelete', { 'address': e.row.address })
+	}
+})
+```
