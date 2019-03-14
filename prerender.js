@@ -330,13 +330,8 @@ function mapMinus(IP) {
 function mapGet(IP) {
 	return IPs[IP] || 0
 }
-
 function getIP(request, response) {
-	if (FLAG_PUBLIC) {
-		return request.headers['CF-Connecting-IP']
-	} else {
-		return request.connection.remoteAddress
-	}
+	return FLAG_PUBLIC ? request.headers['CF-Connecting-IP'] : request.connection.remoteAddress
 }
 Array.prototype.remove = function (item) {
 	for (var i = 0; i < this.length; i++) {
