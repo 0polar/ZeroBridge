@@ -275,9 +275,7 @@ var IPs = {}
 var running = 0
 
 function queueAdd(request, response, isBot) {
-	console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
 	var IP = getIP(request, response)
-
 	if (mapGet(IP)) {
 		queue.unshift(request)
 		queue.unshift(response)
@@ -298,22 +296,24 @@ function queueAdd(request, response, isBot) {
 			queueRemove(request, response)
 		})
 	}
+	console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
 }
 function queueRemove(request, response) {
-	console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
 	var IP = getIP(request, response)
-
-	removeIteminArray(queue, request)
-	removeIteminArray(queue, response)
-	setTimeout(mapMinus, 1000, IP)
+	queue.remove(request)
+	queue.remove(response)
+	setTimeout(() => {
+		mapMinus(IP)
+		console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
+	}, 1000)
 	queueRun()
 }
 function queueRun() {
-	console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
 	if (running < 2 && queue.length > 0) {
 		prerender(queue[1], queue[0])
 		running++
 	}
+	console.log(queue.length + '\t' + Object.keys(IPs).length + '\t' + running)
 }
 
 function mapPlus(IP) {
@@ -338,10 +338,10 @@ function getIP(request, response) {
 		return request.connection.remoteAddress
 	}
 }
-function removeIteminArray(array, item) {
-	for (var i = 0; i < array.length; i++) {
-		if (array[i] === item) {
-			array.splice(i, 1)
+Array.prototype.remove = function (item) {
+	for (var i = 0; i < this.length; i++) {
+		if (this[i] === item) {
+			this.splice(i, 1)
 			break
 		}
 	}
