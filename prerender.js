@@ -58,7 +58,7 @@ function main(request, response) {
 		return
 	}
 	if (isRoot && isEndWithSlash && (isAddress || isBitcoin)) {
-		queueAdd(request, response)
+		queueAdd(request, response, botTest(request.headers['User-Agent']))
 		return
 	}
 
@@ -125,7 +125,7 @@ async function prerender(request, response) {
 		frame = await frame.contentFrame()
 
 		var isBot = botTest(request.headers['User-Agent'])
-		frame.evaluate(function () {
+		frame.evaluate(function (isBot) {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
 			}
@@ -146,7 +146,7 @@ async function prerender(request, response) {
 				clearInterval(scroller)
 				style.remove()
 			}, isBot ? 3000 : 1600)
-		})
+		}, isBot)
 		await page.waitFor(isBot ? 4000 : 1800)
 
 		frame = await page.waitFor('#inner-iframe', { timeout: 5000 })
