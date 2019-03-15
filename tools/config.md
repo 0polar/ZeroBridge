@@ -112,3 +112,13 @@ Page.site_list.sites.forEach(e => {
 	}
 })
 ```
+
+## `UiRequest.py`
+
+```python
+import gc
+...
+elif path == "/GC":
+    self.sendHeader()
+    return str(gc.collect())
+```
