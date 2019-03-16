@@ -1,4 +1,4 @@
-## Dependencies
+## Dependency
 
 https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
 
@@ -89,36 +89,3 @@ https://www.techbrown.com/create-linux-swap-drive-swap-file
     Browser Cache TTL: 2 days, Cache Level: Cache Everything, Edge Cache TTL: 5 days
 2.  `43110.cf/raw/1Ake2MmwxDgst5M8WqoyNLjDQj2pcPj5zL/*`
     Browser Cache TTL: 30 minutes, Cache Level: Cache Everything, Edge Cache TTL: a month
-
-## Home
-
-```html
-<link rel="preload" href="/Me.ZeroNetwork.bit/css/all.css?v=1542807170" as="style">
-...
-<b><a href="/raw/1Ake2MmwxDgst5M8WqoyNLjDQj2pcPj5zL/sitemap.html">Site Map</a></b>,
-<b><a href="/Me.ZeroNetwork.bit/">Feed Map</a></b>
-...
-Hosted on Cloudflare and Vultr.
-```
-
-## Remove long time "connecting" site
-
-https://github.com/zcyzcy88/SelfColle/issues/57
-
-```js
-Page.site_list.sites.forEach(e => {
-	if (!e.row.content.title) {
-		Page.cmd('siteDelete', { 'address': e.row.address })
-	}
-})
-```
-
-## `UiRequest.py`
-
-```python
-import gc
-...
-elif path == "/GC":
-    self.sendHeader()
-    return str(gc.collect())
-```
