@@ -5036,7 +5036,7 @@ function clone(obj) {
 
     PostList.prototype.queryComments = function(post_uris, cb) {
       var query;
-      query = "SELECT post_uri, comment.body, comment.date_added, comment.comment_id, json.cert_auth_type, json.cert_user_id, json.user_name, json.hub, json.directory, json.site FROM comment LEFT JOIN json USING (json_id) WHERE ? AND date_added < " + (Time.timestamp() + 120) + " ORDER BY date_added DESC";
+      query = "SELECT post_uri, comment.body, comment.date_added, comment.comment_id, json.cert_auth_type, json.cert_user_id, json.user_name, json.hub, json.directory FROM comment LEFT JOIN json USING (json_id) WHERE ? AND date_added < " + (Time.timestamp() + 120) + " ORDER BY date_added DESC";
       return Page.cmd("dbQuery", [
         query, {
           post_uri: post_uris
@@ -5085,14 +5085,14 @@ function clone(obj) {
             comment_db = {};
             for (_j = 0, _len1 = comment_rows.length; _j < _len1; _j++) {
               comment_row = comment_rows[_j];
-              if (comment_db[_name = comment_row.site + "/" + comment_row.post_uri] == null) {
+              if (comment_db[_name = comment_row.post_uri] == null) {
                 comment_db[_name] = [];
               }
-              comment_db[comment_row.site + "/" + comment_row.post_uri].push(comment_row);
+              comment_db[comment_row.post_uri].push(comment_row);
             }
             for (_k = 0, _len2 = rows.length; _k < _len2; _k++) {
               row = rows[_k];
-              row["comments"] = comment_db[row.site + "/" + row.post_uri];
+              row["comments"] = comment_db[row.post_uri];
               if (((_ref = _this.filter_post_ids) != null ? _ref.length : void 0) === 1 && row.post_id === parseInt(_this.filter_post_ids[0])) {
                 row.selected = true;
               }
