@@ -4,7 +4,8 @@
 <link rel="preload" href="/Me.ZeroNetwork.bit/css/all.css?v=1542807170" as="style">
 ...
 <b><a href="/raw/1Ake2MmwxDgst5M8WqoyNLjDQj2pcPj5zL/sitemap.html">Site Map</a></b>,
-<b><a href="/Me.ZeroNetwork.bit/">Feed Map</a></b>
+<b><a href="/Me.ZeroNetwork.bit/">ZeroMe</a></b>,
+<b><a href="/1ADQAHsqsie5PBeQhQgjcKmUu3qdPFg6aA/">Millchan</a></b>
 ...
 Hosted on Cloudflare and Vultr.
 ```
