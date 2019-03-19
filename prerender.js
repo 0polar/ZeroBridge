@@ -125,7 +125,7 @@ async function prerender(request, response) {
 		frame = await frame.contentFrame()
 
 		var isBot = botTest(request.headers['user-agent'])
-		// console.log(isBot, request.headers['user-agent'])
+		console.log(isBot, request.headers['user-agent'])
 		frame.evaluate(function (isBot) {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
@@ -292,7 +292,7 @@ function queueAdd(request, response) {
 			queue.unshift(request)
 			queue.unshift(response)
 			queueRun()
-		}, IPs[IP] * (isBot ? 5000 : 3000))
+		}, IPs[IP] * (isBot ? 7000 : 4000))
 		request.on('close', () => {
 			clearTimeout(pending)
 			queueRemove(request, response)
