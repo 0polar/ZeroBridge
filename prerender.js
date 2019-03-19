@@ -124,8 +124,8 @@ async function prerender(request, response) {
 		var frame = await page.waitFor('#inner-iframe', { timeout: 1800 })
 		frame = await frame.contentFrame()
 
-		var isBot = botTest(request.headers['User-Agent'])
-		console.log(isBot)
+		var isBot = botTest(request.headers['user-agent'])
+		// console.log(isBot, request.headers['user-agent'])
 		frame.evaluate(function (isBot) {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
@@ -148,7 +148,7 @@ async function prerender(request, response) {
 				style.remove()
 			}, isBot ? 4000 : 1600)
 		}, isBot)
-		await page.waitFor(isBot ? 6000 : 1800)
+		await page.waitFor(isBot ? 5000 : 1800)
 
 		frame = await page.waitFor('#inner-iframe', { timeout: 5000 })
 		frame = await frame.contentFrame()
@@ -277,7 +277,7 @@ var running = 0
 
 function queueAdd(request, response) {
 	var IP = getIP(request, response)
-	var isBot = botTest(request.headers['User-Agent'])
+	var isBot = botTest(request.headers['user-agent'])
 	if (mapGet(IP)) {
 		queue.unshift(request)
 		queue.unshift(response)
