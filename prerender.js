@@ -58,7 +58,7 @@ function main(request, response) {
 		return
 	}
 	if (isRoot && isEndWithSlash && (isAddress || isBitcoin)) {
-		queueAdd(request, response, botTest(request.headers['User-Agent']))
+		queueAdd(request, response)
 		return
 	}
 
@@ -67,7 +67,7 @@ function main(request, response) {
 	var isCommonStatic = ['.css', '.js', '.json', '.jpg', '.jpeg', '.png', '.gif', '.svg', '.ico'].includes(ext)
 
 	if (isHTML) {
-		queueAdd(request, response, botTest(request.headers['User-Agent']))
+		queueAdd(request, response)
 		return
 	} else if (FLAG_PUBLIC && !isEndWithSlash && !isCommonStatic) {
 		// optimize for caching rule
@@ -121,10 +121,11 @@ async function prerender(request, response) {
 
 		await page.goto('http://127.0.0.1:43110' + request.url, { waitUntil: 'domcontentloaded', timeout: 20000 })
 		await page.waitFor(200)
-		var frame = await page.waitFor('#inner-iframe', { timeout: 1000 })
+		var frame = await page.waitFor('#inner-iframe', { timeout: 1800 })
 		frame = await frame.contentFrame()
 
 		var isBot = botTest(request.headers['User-Agent'])
+		console.log(isBot)
 		frame.evaluate(function (isBot) {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
@@ -145,9 +146,9 @@ async function prerender(request, response) {
 				clearInterval(clicker)
 				clearInterval(scroller)
 				style.remove()
-			}, isBot ? 3000 : 1600)
+			}, isBot ? 4000 : 1600)
 		}, isBot)
-		await page.waitFor(isBot ? 4000 : 1800)
+		await page.waitFor(isBot ? 6000 : 1800)
 
 		frame = await page.waitFor('#inner-iframe', { timeout: 5000 })
 		frame = await frame.contentFrame()
@@ -274,8 +275,9 @@ var queue = []
 var IPs = {}
 var running = 0
 
-function queueAdd(request, response, isBot) {
+function queueAdd(request, response) {
 	var IP = getIP(request, response)
+	var isBot = botTest(request.headers['User-Agent'])
 	if (mapGet(IP)) {
 		queue.unshift(request)
 		queue.unshift(response)
