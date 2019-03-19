@@ -99,13 +99,13 @@ function proxy(clientRequest, clientResponse) {
 
 /* Reference: https://developers.google.com/web/tools/puppeteer/articles/ssr */
 let browser
-(async function () {
+void async function () {
 	browser = await puppeteer.launch({
 		headless: FLAG_HEADLESS,
 		defaultViewport: null,
 		executablePath: FLAG_HEADLESS ? undefined : 'C:/Program Files (x86)/Google/Chrome Beta/Application/chrome.exe'
 	})
-})()
+}()
 
 async function prerender(request, response) {
 	console.log('Prerender:', request.url)
@@ -125,8 +125,12 @@ async function prerender(request, response) {
 		frame = await frame.contentFrame()
 
 		var isBot = botTest(request.headers['user-agent'])
-		console.log(isBot, request.headers['user-agent'])
-		frame.evaluate(function (isBot) {
+		var isMillchan = request.url.startsWith('/1ADQAHsqsie5PBeQhQgjcKmUu3qdPFg6aA')
+		var timeout = 1800
+		if (isBot) timeout += 3000
+		if (isMillchan) timeout += 4000
+
+		frame.evaluate(function (timeout) {
 			if (typeof jQuery !== 'undefined') {
 				jQuery.fx.off = true
 			}
@@ -146,11 +150,11 @@ async function prerender(request, response) {
 				clearInterval(clicker)
 				clearInterval(scroller)
 				style.remove()
-			}, isBot ? 4000 : 1600)
-		}, isBot)
-		await page.waitFor(isBot ? 5000 : 1800)
+			}, timeout - 200)
+		}, timeout)
+		await page.waitFor(timeout)
 
-		frame = await page.waitFor('#inner-iframe', { timeout: 5000 })
+		frame = await page.waitFor('#inner-iframe', { timeout: timeout + 3000 })
 		frame = await frame.contentFrame()
 
 		var pageTitle = await page.title()
