@@ -59,7 +59,7 @@ systemctl start prerender
 
 ```bash
 sysctl -w kernel.unprivileged_userns_clone=1
-ip6tables -A PREROUTING -t nat -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8443
+ip6tables -A PREROUTING -t nat -p tcp --dport 443 -j REDIRECT --to-port 8443
 systemctl stop prerender --no-block
 pkill node
 pkill chrome
