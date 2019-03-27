@@ -78,11 +78,6 @@ https://www.techbrown.com/create-linux-swap-drive-swap-file
 *   Browser Cache Expiration: 20 hours
 *   Email Address Obfuscation: Off
 
-### Firewall Rules
-
-1.  `(http.request.uri.path eq "/Stats")`
-    Block
-
 ### Page Rules
 
 1.  `43110.cf/raw/*`
