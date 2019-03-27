@@ -1,4 +1,6 @@
-## `home.html`
+## Disable `plugins/Chart` and `plugins/Stats`
+
+## `assets/home.html`
 
 ```html
 <link rel="preload" href="/Me.ZeroNetwork.bit/css/all.css?v=1542807170" as="style">
@@ -59,14 +61,4 @@ $$('.site-link').forEach(e => {
 
 
 copy(l.join('\n'))
-```
-
-## `UiRequest.py`
-
-```python
-import gc
-...
-elif path == "/GC":
-    self.sendHeader()
-    return str(gc.collect())
 ```
