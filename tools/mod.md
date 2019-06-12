@@ -8,8 +8,6 @@
 <b><a href="/raw/1Ake2MmwxDgst5M8WqoyNLjDQj2pcPj5zL/sitemap.html">Site Map</a></b>,
 <b><a href="/Me.ZeroNetwork.bit/">ZeroMe</a></b>,
 <b><a href="/1ADQAHsqsie5PBeQhQgjcKmUu3qdPFg6aA/">Millchan</a></b>
-...
-Hosted on Cloudflare and Vultr.
 ```
 
 ## Remove dead sites (long time "connecting")
