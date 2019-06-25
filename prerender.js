@@ -126,9 +126,9 @@ async function prerender(request, response) {
 
 		var isBot = botTest(request.headers['user-agent'])
 		var isMillchan = request.url.startsWith('/1ADQAHsqsie5PBeQhQgjcKmUu3qdPFg6aA')
-		var timeout = 1800
-		if (isBot) timeout += 3000
-		if (isMillchan) timeout += 4000
+		var timeout = 900
+		if (isBot) timeout += 1100
+		if (isMillchan) timeout += 800
 
 		frame.evaluate(function (timeout) {
 			if (typeof jQuery !== 'undefined') {
