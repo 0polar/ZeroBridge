@@ -80,7 +80,7 @@ https://www.techbrown.com/create-linux-swap-drive-swap-file
 
 ### Page Rules
 
-1.  `43110.cf/raw/*`
+1.  `0net.eu.org/raw/*`
     Browser Cache TTL: 2 days, Cache Level: Cache Everything, Edge Cache TTL: 5 days
-2.  `43110.cf/raw/1Ake2MmwxDgst5M8WqoyNLjDQj2pcPj5zL/*`
+2.  `0net.eu.org/raw/1Ake2MmwxDgst5M8WqoyNLjDQj2pcPj5zL/*`
     Browser Cache TTL: 30 minutes, Cache Level: Cache Everything, Edge Cache TTL: a month
