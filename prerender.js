@@ -245,7 +245,7 @@ function titleProcess(pageTitle, frameTitle) {
 		fullTitle.push(frameTitle)
 	}
 
-	fullTitle.push('ZeroBridge, ZeroNet Proxy')
+	fullTitle.push('ZeroNet public gateway')
 	return fullTitle.join(' // ').trim()
 }
 
