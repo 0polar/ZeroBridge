@@ -1,0 +1,57 @@
+{
+  "includes": {
+    "13CgSQeywg2ius5pjXVCk7dKUCRkz5xvW3/filters/users.json": {
+      "address": "13CgSQeywg2ius5pjXVCk7dKUCRkz5xvW3",
+      "date_added": 1562525266.933,
+      "description": null,
+      "inner_path": "filters/users.json"
+    },
+    "1CufK1ZtvekbFXEpSyKT2gDjf9jnqW8KwG/filters/users.json": {
+      "address": "1CufK1ZtvekbFXEpSyKT2gDjf9jnqW8KwG",
+      "date_added": 1562525249.728,
+      "description": null,
+      "inner_path": "filters/users.json"
+    },
+    "1LgqZfbtr6dukbjHdjWBEmmthq1shEv3y1/filters/users.json": {
+      "address": "1LgqZfbtr6dukbjHdjWBEmmthq1shEv3y1",
+      "date_added": 1562524664.836,
+      "description": null,
+      "inner_path": "filters/users.json"
+    }
+  },
+  "mutes": {},
+  "siteblocks": {
+    "13WfLQv2nWXYBNUEL3PkWwGUe3H7qkTF5Y": {
+      "date_added": 1563357996.50944,
+      "reason": "cryptominer"
+    },
+    "14YK7V93HNLJb94PFrKj4aQMxPVkrbZ3oL": {
+      "date_added": 1563357895.7606773,
+      "reason": "cryptominer"
+    },
+    "16AzWR6xfhVvrmvQCm4mt7rN17CWZTCJYS": {
+      "date_added": 1563357944.826484,
+      "reason": "cryptominer"
+    },
+    "19HuN9AA7of32Z6rzCc5H6HyiDg7LTV4Qn": {
+      "date_added": 1552562288.989,
+      "reason": "too big"
+    },
+    "1CS9y8BCXC7iXTqDMaYnwN9br8WaRbUeJV": {
+      "date_added": 1563357982.5816433,
+      "reason": "cryptominer"
+    },
+    "1CpAXQVfedrNVKSLJMKEtrWNvU8KMXJzAt": {
+      "date_added": 1563357918.395972,
+      "reason": "cryptominer"
+    },
+    "1ESR2ST4zFvnP7BzgoNdQAfFs5TAg2Mt3g": {
+      "date_added": 1562568237.382,
+      "reason": "Jessica Nigri Gallery"
+    },
+    "1uPLoaDwKzP6MCGoVzw48r4pxawRBdmQc": {
+      "date_added": 1552562230.439,
+      "reason": "too big"
+    }
+  }
+}
