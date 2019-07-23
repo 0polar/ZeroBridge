@@ -1,0 +1,121 @@
+{
+  "includes": {
+    "13CgSQeywg2ius5pjXVCk7dKUCRkz5xvW3/filters/users.json": {
+      "address": "13CgSQeywg2ius5pjXVCk7dKUCRkz5xvW3",
+      "date_added": 1562525083.0526686,
+      "description": null,
+      "inner_path": "filters/users.json"
+    },
+    "1CufK1ZtvekbFXEpSyKT2gDjf9jnqW8KwG/filters/users.json": {
+      "address": "1CufK1ZtvekbFXEpSyKT2gDjf9jnqW8KwG",
+      "date_added": 1562525027.105886,
+      "description": null,
+      "inner_path": "filters/users.json"
+    },
+    "1LgqZfbtr6dukbjHdjWBEmmthq1shEv3y1/filters/users.json": {
+      "address": "1LgqZfbtr6dukbjHdjWBEmmthq1shEv3y1",
+      "date_added": 1562524631.0436857,
+      "description": null,
+      "inner_path": "filters/users.json"
+    }
+  },
+  "mutes": {},
+  "siteblocks": {
+    "122Ad6qhGRhFNcGgqSqkg9karrQf4fAPZe": {
+      "date_added": 1563357326.4732614,
+      "reason": "Deep Fakes"
+    },
+    "12QDpKdCkd1ZBz37jL1e5FeGSPx5BcsgDP": {
+      "date_added": 1563357710.305769,
+      "reason": "\u90ed\u6587\u8d35 VOA"
+    },
+    "149EPBN4hQRpwj5TcoPETepnoXHCUXzaCN": {
+      "date_added": 1563357315.4007258,
+      "reason": "YouTube"
+    },
+    "15Lr9YZ4DC9ZF2BSwZc7S1wDr9hTDx9w5h": {
+      "date_added": 1562653666.6535845,
+      "reason": "YouTube PL"
+    },
+    "15QCUnCyYRW3b16YSvjwGvw3AYDD5JZXqC": {
+      "date_added": 1563357683.9247272,
+      "reason": "ZeroVid"
+    },
+    "16WRGSqD26sfYiVBsBQg6y1Sd3YJP6Q3SF": {
+      "date_added": 1562525827.77987,
+      "reason": "cryptominer"
+    },
+    "18Pfr2oswXvD352BbJvo59gZ3GbdbipSzh": {
+      "date_added": 1563357399.9339917,
+      "reason": "KopyKate BIG OFFICIAL"
+    },
+    "191C1ggdcP31gFfTtwxH1CBSycXF7tR8uC": {
+      "date_added": 1560763038.9139285,
+      "reason": "porn"
+    },
+    "19EUPn2NVQZwzX2Z9TiqgD31iZdZNHYHpy": {
+      "date_added": 1560447272.661807,
+      "reason": "video"
+    },
+    "1ATfZsQ5KUYFEcPKA1XKoJu3uyVKi4Kpit": {
+      "date_added": 1562566392.9853268,
+      "reason": "Cryptocurrency Paper Wallet Creator"
+    },
+    "1BCrj9RFTA6i5SzhKA8zVX8q8KRZqW3e29": {
+      "date_added": 1560848564.0960288,
+      "reason": "porn"
+    },
+    "1BscRL2rzEiu35RqDAtvC8w8KpjJkqENqH": {
+      "date_added": 1562480074.124046,
+      "reason": "porn"
+    },
+    "1CdUu5mv7sXVv8ki3qNvUfLXAJDTwr6kEH": {
+      "date_added": 1562651629.181689,
+      "reason": "Offline Wallet"
+    },
+    "1CpAXQVfedrNVKSLJMKEtrWNvU8KMXJzAt": {
+      "date_added": 1562651666.791453,
+      "reason": "PyroMaster"
+    },
+    "1CyVRbQzc6sFCmQwTDiNmECj5zmKmCLx4u": {
+      "date_added": 1563357700.264336,
+      "reason": "ZeroVid"
+    },
+    "1E2WNr2JDMYSrQ2AcRn3vaYVdwaoAUJb8f": {
+      "date_added": 1562212419.8422482,
+      "reason": "\u7ffb\u5899\u5927\u6740\u5668"
+    },
+    "1EArtUx9KARpUEJVbKh4TTTR6hWuuUMPyb": {
+      "date_added": 1562213182.2920885,
+      "reason": "porn"
+    },
+    "1EHsK5ypznsJW4fGj5LnKQQ1EhZ4doZ8s6": {
+      "date_added": 1562651502.4100502,
+      "reason": "video"
+    },
+    "1ESR2ST4zFvnP7BzgoNdQAfFs5TAg2Mt3g": {
+      "date_added": 1562654012.6148639,
+      "reason": "Jessica Nigri Gallery"
+    },
+    "1KYUKi9FBCxEiEwgTVQcr396re3QVnT6en": {
+      "date_added": 1563357615.3427134,
+      "reason": "VOA Chinese"
+    },
+    "1MWkQT4a9AJBzcgmPVu9QczWVNaTgd72fR": {
+      "date_added": 1563357336.415361,
+      "reason": "Veronika Black Gallery"
+    },
+    "1QKcTLrnSodMZqHqWCBbx1izqtXRyeUDfq": {
+      "date_added": 1560762730.7422845,
+      "reason": "porn"
+    },
+    "1RuLFAr8pJMdwMWaLfp5X5ousDZHXv8K4": {
+      "date_added": 1563357964.626128,
+      "reason": "cryptominer"
+    },
+    "1pornzccmvp6gK9omrA5toPg7kYYU1ZBB": {
+      "date_added": 1563357303.709519,
+      "reason": "porn"
+    }
+  }
+}
